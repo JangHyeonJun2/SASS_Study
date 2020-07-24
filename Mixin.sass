@@ -1,0 +1,43 @@
+// ----
+// Sass (vundefined)
+// Compass (vundefined)
+// ----
+
+@mixin large-text {
+  font: {
+    size: 22px;
+    weight: bold;
+    family: sans-serif;
+  }
+  color: orange;
+
+  &::after {
+    content: "!!";
+  }
+
+  span.icon {
+    background: url("/images/icon.png");
+  }
+}
+
+@mixin dash-line($width: 1px, $color: black) {
+  border: $width dashed $color;
+}
+
+.box1{
+  @include large-text;
+}
+
+.box2{
+  @include large-text;
+}
+.dash-box1{
+  @include dash-line;
+}
+.dash-box2{
+  @include dash-line(1px ,blue);
+}
+
+.dash-box3{
+  @include dash-line($color: blue); /*keyword Argument*/
+}
