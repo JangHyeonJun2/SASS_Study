@@ -1,0 +1,38 @@
+@mixin icon($url){
+  &::after{
+    content: $url;
+    @content;
+  }
+}
+.box1{
+  @include icon("image/icon1.png");
+}
+.box2{
+  @include icon("image/icon2.png"){
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  };
+}
+
+@mixin large-text {
+  font: {
+    size: 22px;
+    weight: bold;
+    family: sans-serif;
+  }
+  color: orange;
+/*Mixin은 선택자를 포함 가능하고 상위(부모) 요소 참조(& 같은)도 할 수 있습니다.*/
+  &::after {
+    content: "!!";
+  }
+
+  span.icon {
+    background: url("/images/icon.png");
+  }
+}
+
+.box3{
+  @include large-text;
+}
