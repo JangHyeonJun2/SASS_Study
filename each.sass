@@ -1,0 +1,37 @@
+/*@each는 List와 Map 데이터를 반복할 때 사용합니다.
+for in 문과 유사합니다.
+
+@each $변수 in 데이터 {
+  // 반복 내용
+}*/
+
+$fruits: apple,banana,orange,mango;
+
+.fruits{
+  @each $fruit in $fruits{
+    li.#{$fruit}{
+      background: url("/image/#{$fruit}.png");
+      $index: index($fruits,$fruit);
+      width: 50* $index;
+    }
+    
+    
+  }
+}
+//Map data
+$fruits-data:(
+  apple: korea,
+  orange: china,
+  banana: japan
+);
+
+@each $fruit,$country in $fruits-data{
+  //map-keys($fruits-data) -> (apple, orange, banana)
+  //map-values($fruits-data) -> (korea, china, japan)
+  $fruits-data-key-list: map-keys($fruits-data);
+  $index: index($fruits-data-key-list,$fruit);
+  .box-#{fruit}{
+    width: 10 * $index;
+    background: url("/images/#{$country}.png");
+  }
+}
