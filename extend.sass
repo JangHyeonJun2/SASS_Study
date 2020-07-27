@@ -1,0 +1,15 @@
+/*이렇게 작성해서 css로 생성되는걸 보면 .btn, .btn-danger {
+  padding: 10px;
+  margin: 10px;
+  background: blue;
+} 이런식으로 나오게 되는데 이 구문은 .btn 과 .btn-danger는 아래 내용을 가질 수 있다  라는 의미이다.*/
+
+.btn{
+  padding: 10px;
+  margin: 10px;
+  background: blue;
+}
+.btn-danger{
+  @extend .btn;
+  background: red;
+}
